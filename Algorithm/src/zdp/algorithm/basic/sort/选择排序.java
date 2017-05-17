@@ -16,6 +16,10 @@ public class 选择排序 {
 		
 		SelectedSort(num);
 		
+		for(int i : num){
+			System.out.print(i +",");
+		}
+		
 	}
 	/**
 	 * 选择排序算法，先选择第一个值为基本值，然后依次比较
@@ -23,6 +27,21 @@ public class 选择排序 {
 	 */
 	private static void SelectedSort(int[] num) {
 		
+		//第一层循环，依次轮训数组的值
+		for(int i = 0;i<num.length ; i++){
+			//设置最小值，以第一层循环的值为最小值
+			int min = i;
+			//第二层循环，依次比较
+			for(int j=i+1;j<num.length;j++){
+				if(num[j]<num[i]) min=j;
+			}
+			
+			if(min != i){
+				int type = num[i];
+				num[i]=num[min];
+				num[min]=type;
+			}
+		}
 	}
 
 }
